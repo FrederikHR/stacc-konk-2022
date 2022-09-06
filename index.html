@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PEP Checker</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel = "icon" href = "user-white.svg" type = "image/x-icon">
+  <script defer src="script.js"></script>
+
+</head>
+<body>
+  <div class="header">
+    <h1>PEP-sjekk på <u class="underlined">1-2-3</u></h1>
+  </div>
+
+  <div class = "intro_div">
+    <h3>KYC eller “know your customer” er virkemidler som sikrer at et finansforetak vet nok 
+      om sine kunder til å forhindre og avdekke om det finansielle systemet brukes til ulovlig virksomhet, 
+      som hvitvasking, korrupsjon og terrorfinansiering.</h3>
+    <h3 >Et av disse virkemidlene er å utføre en <a href ='https://no.wikipedia.org/wiki/Politisk_eksponert_person'>PEP-sjekk</a> 
+      (Politically Exposed Person) av kunder. 
+      En politisk eksponert person har generelt sett større risiko for korrupsjon og bestikkelser knyttet til seg, 
+      og vil dermed være flagget for manuell behandling i f.eks en lånesøknad hos en bank.</h3>
+    <hr>
+    <h3>På denne nettsiden kan du PEP-sjekke <u class='underlined'>personer</u><img src="user.svg" alt="enkelt ikon av bruker."><br>
+      Du kan også finne informasjon om  <u class='underlined'>organisasjoner</u> <img src="city.svg" alt="ikon av bygning, f.eks et kontorbygg."> og <u class = 'underlined'>ansatte</u><img src="group.svg" alt="enkelt ikon av to brukere."> i organisasjonen</h3>
+      <button class = "button clickable" onClick="document.getElementById('main_div').scrollIntoView();">Kom i gang</button>
+  </div>
+  
+  <div id = "main_div">  
+    <div class = 'main_content' id = "left_section">
+      <div class = "step">
+        <h2>Steg 1: </h2>
+        <p> Velg om du vil PEP-sjekke en person, hente info om en organisasjon, eller info om ansatte i en organisasjon. </p>
+      </div>
+
+      <hr>  
+
+      <div class = "step">
+        <h2>Steg 2: </h2>
+        <p>Velg hva som er relevant for ditt søk.</p>
+      </div>
+
+      <hr>
+
+      <div class = "step">
+        <h2>Steg 3: </h2>
+        <p> Skriv inn navnet på en person eller en organisasjon.</p>
+      </div>
+    </div>
+    
+    <div class = 'main_content' id = "right_section">
+      <div class = 'right_section_sub'>
+        <div tabindex = '0' class="clickable categories" onclick = "select('person');showCheckboxes('person_checkbox')">
+          <h2>Person</h2>
+          <img id = "person" src="user.svg"  alt="enkel logo av person">
+        </div>
+  
+        <div tabindex = '0' class="clickable categories" onclick = "select('organisasjon');showCheckboxes('organisasjon_checkbox')">
+          <h2>Organisasjon</h2>
+          <img id = "organisasjon" src="city.svg"  alt="bilde av et bygg, som en skole eller kontorbygg">
+        </div>
+  
+        <div  tabindex = '0' class="clickable categories" onclick = "select('roller');showCheckboxes('roller_checkbox')">
+          <h2>Ansatte</h2>
+          <img id = "roller" src="group.svg"  alt="enkel logo av to like personer">
+        </div>
+      </div>
+    
+      <div class = 'right_section_sub' id = "checkbox_info">
+        <div class="checkboxes" id = "person_checkbox" style = "visibility: visible">
+          <div class="label_and_checkbox">
+            <label for="score">Land</label>
+            <input type="checkbox" name="Land" id="countries">
+          </div>
+          
+          <div class="label_and_checkbox">
+            <label for="score">Først sett</label>
+            <input type="checkbox" name="Først sett" id="first_seen">
+          </div>
+    
+          <div class="label_and_checkbox">
+            <label for="score">Sist sett</label>
+            <input type="checkbox" name="Sist sett" id="last_seen">
+          </div>
+          
+          <div class="label_and_checkbox">
+            <label for="birth_date">Fødselsdato</label>
+            <input type="checkbox" name="Fødselsdato" id="birth_date">
+          </div>
+        </div>
+        <div class = "checkboxes" id = "organisasjon_checkbox" style ="visibility: hidden">
+
+          <div class="label_and_checkbox">
+            <label for="antall_ansatte">Antall ansatte</label>
+            <input type="checkbox" name="Antall ansatte" id ="antallAnsatte">
+          </div>
+    
+          <div class="label_and_checkbox">
+            <label for ="landkode">Landkode</label>
+            <input type="checkbox" name="Landkode" id = "landkode">
+          </div>
+
+          <div class="label_and_checkbox">
+            <label for ="beskrivelse">Organisasjonsform</label>
+            <input type="checkbox" name="organisasjonsform" id="beskrivelse">
+          </div>
+
+          <div class="label_and_checkbox"> 
+            <label for="poststed">Poststed</label>
+            <input type='checkbox' name="Poststed" id="poststed">
+          </div>
+          
+        </div>
+  
+        <div class = 'checkboxes' id='roller_checkbox'  style ='visibility: hidden'>
+          <div class='label_and_checkbox'>
+            <label for='fodselsdato'>Fødselsdato</label>
+            <input type='checkbox' name='Fødselsdato' id ='fodselsdato'>
+          </div>
+
+          <div class="label_and_checkbox">
+            <label for="beskrivelse">Stilling</label>
+            <input type="checkbox" name="Stilling" id ="beskrivelse">
+          </div>
+    
+          <div class="label_and_checkbox">
+            <label for="fratraadt">Fratrådt</label>
+            <input type="checkbox" name="Fratrådt" id ="fratraadt">
+          </div>
+
+          <div class="label_and_checkbox">
+            <label for="erDoed">Gått bort</label>
+            <input type='checkbox' name='Gått bort' id="erDoed">
+          </div>
+        </div>
+      </div>
+          <div id = "submit_div">
+              <input id = "search_input" placeholder = "Navn" type="search" required>
+              <input form = "submit-form" class = "button clickable" type="submit" value="Søk" onclick= "fetchData();showResults();document.getElementById('results_display').scrollIntoView();">
+          </div> 
+    </div>
+  </div>
+  <hr>
+  <div id = "results_display" class="hide" style="display: none">
+    
+  </div>
+
+<input style = "visibility: hidden" id = 'nytt_sok' type="submit" class="button clickable hide" value="Nytt søk" onClick="document.getElementById('main_div').scrollIntoView();">
+</body>
+</html>
